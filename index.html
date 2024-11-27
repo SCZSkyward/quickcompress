@@ -1,7 +1,7 @@
 <title>Quick Compress - Free Online Compression</title>
 
 
-<body>
+<body bgcolor="#212121">
 <p>Allows you to compress videos for free!</p>
 <form enctype="multipart/form-data" action="https://httpbin.org/post" method="post">
    <input type="file" id="videoUpload" name="videoUpload" accept="/*"></input>
@@ -10,9 +10,47 @@
 <text>Credits:</text>
 <a href="https://github.com/ffmpegwasm/ffmpeg.wasm">ffmpeg-wasm</a>
 
+<img id="secretImage" src="secret.png" alt="Secret Image">
+</body>
+
 <style>
-    p {text-align: center; margin: auto; padding: 20; font-weight: bold; font-size: large; }
-    text { font-weight: bold; margin-bottom: 2%; margin-top: 0%; position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%); text-align: center; font-size: large; }
-    form {text-align: center; margin: auto; padding: 10; }
-    a {font-weight: bold; margin-bottom: 2%; margin-top: 2%; bottom: 20px; position: fixed; left: 50%; transform: translateX(-50%); text-align: center;}
+    p {text-align: center; margin: auto; padding: 20; font-weight: bold; font-size: 30px; color: #FAFAFA;}
+    text {font-weight: bold; margin-bottom: 2%; margin-top: 0%; position: fixed; bottom: 40px; left: 50%; transform: translateX(-50%); text-align: center; font-size: 22px; color: #FAFAFA;}
+    form {text-align: center; margin: auto; padding: 10; color: #FAFAFA; font-size: 17px;}
+    a {font-weight: bold; margin-bottom: 1.9%; margin-top: 2%; bottom: 20px; position: fixed; left: 50%; transform: translateX(-50%); text-align: center; color: #BBDEFB; font-size: 17px;}
+	#secretImage {
+     	display: none;
+     	position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        max-width: 90%;
+        max-height: 90%;
+    }
 </style>
+
+<script>
+   // this is chatgpt code sorry.....
+   const secretCode = "23091993"; // The secret key sequence
+   let inputSequence = "";
+
+   document.addEventListener("keydown", (event) => {
+   inputSequence += event.key; // Add the pressed key to the sequence
+
+   // Keep the sequence trimmed to the length of the secretCode
+   if (inputSequence.length > secretCode.length) {
+      inputSequence = inputSequence.slice(-secretCode.length);
+   }
+
+   // Check if the sequence matches the secretCode
+    if (inputSequence === secretCode) {
+        const image = document.getElementById("secretImage");
+        // Toggle the display between 'block' and 'none'
+        if (image.style.display === "none" || !image.style.display) {
+            image.style.display = "block"; // Show the image
+        } else {
+            image.style.display = "none"; // Hide the image
+        }
+    }
+});
+</script>
